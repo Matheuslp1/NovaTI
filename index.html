@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaTI — Trilhas e guias de tecnologia</title>
+  <meta name="description" content="Trilhas práticas de redes, segurança, desenvolvimento e nuvem para quem está começando em TI.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="topo">
+    <a class="marca" href="#inicio" aria-label="NovaTI, página inicial">
+      <span class="marca-icone" aria-hidden="true"></span>NovaTI
+    </a>
+    <nav class="abas" id="menu" aria-label="Principal">
+      <a href="#inicio" class="aba ativa">Início</a>
+      <a href="#trilhas" class="aba">Trilhas</a>
+      <a href="#contato" class="aba">Contato</a>
+    </nav>
+    <div class="acoes">
+      <button class="btn-icone" id="tema" type="button" aria-label="Alternar modo escuro" aria-pressed="false">
+        <span class="icone-tema" aria-hidden="true"></span>
+      </button>
+      <button class="btn-icone menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="hero-texto">
+        <h1>Aprenda TI com prática desde o primeiro dia</h1>
+        <p>Trilhas curtas de redes, segurança, desenvolvimento e nuvem para quem está começando ou quer mudar de área.</p>
+        <div class="hero-botoes">
+          <a class="btn btn-primario" href="#trilhas">Ver trilhas</a>
+          <a class="btn btn-sec" href="#contato">Falar com a equipe</a>
+        </div>
+      </div>
+      <div class="terminal" aria-label="Exemplo de comando no terminal">
+        <div class="terminal-barra"><i></i><i></i><i></i></div>
+        <pre id="terminalTexto" aria-live="off"></pre>
+      </div>
+    </section>
+
+    <section class="secao" id="trilhas">
+      <h2>Trilhas de estudo</h2>
+      <p class="sub">Filtre por área ou busque por um tema.</p>
+      <div class="filtros">
+        <div class="chips" role="group" aria-label="Filtrar por área">
+          <button class="chip ativo" data-cat="todas" type="button">Todas</button>
+          <button class="chip" data-cat="redes" type="button">Redes</button>
+          <button class="chip" data-cat="seguranca" type="button">Segurança</button>
+          <button class="chip" data-cat="dev" type="button">Desenvolvimento</button>
+          <button class="chip" data-cat="nuvem" type="button">Nuvem</button>
+        </div>
+        <label class="busca">
+          <span class="sr">Buscar trilha</span>
+          <input type="search" id="busca" placeholder="Buscar trilha…" autocomplete="off">
+        </label>
+      </div>
+      <p class="contagem" id="contagem" aria-live="polite"></p>
+      <div class="grade" id="grade"></div>
+      <p class="vazio" id="vazio" hidden>Nenhuma trilha encontrada. Limpe a busca ou escolha outra área.</p>
+    </section>
+
+    <section class="secao" id="contato">
+      <h2>Fale com a gente</h2>
+      <p class="sub">Conte o que você quer aprender e indicamos por onde começar.</p>
+      <form id="form" class="form" novalidate>
+        <div class="campo">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" required minlength="2" autocomplete="name">
+          <small class="erro" id="erro-nome"></small>
+        </div>
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+          <small class="erro" id="erro-email"></small>
+        </div>
+        <div class="campo">
+          <label for="area">Área de interesse</label>
+          <select id="area" name="area" required>
+            <option value="">Escolha uma área</option>
+            <option>Redes</option>
+            <option>Segurança</option>
+            <option>Desenvolvimento</option>
+            <option>Nuvem</option>
+          </select>
+          <small class="erro" id="erro-area"></small>
+        </div>
+        <div class="campo">
+          <label for="msg">Mensagem</label>
+          <textarea id="msg" name="msg" rows="4" required minlength="10" maxlength="300"></textarea>
+          <small class="dica"><span id="cont">0</span>/300</small>
+          <small class="erro" id="erro-msg"></small>
+        </div>
+        <button class="btn btn-primario" type="submit">Enviar mensagem</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>© <span id="ano"></span> NovaTI. Projeto de estudo em HTML, CSS e JavaScript.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
